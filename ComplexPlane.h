@@ -16,8 +16,8 @@ public:
 	View getView();
 	void setMouseLocation(Vector2f coord);
 	void loadText(Text& text);
-	size_t countIterations(Vector2f coord);
-	void iterationsToRGB(size_t count, uint8_t& r, uint8_t& g, uint8_t& b);
+	size_t countIterations(Vector2f coord) const;
+	void iterationsToRGB(size_t count, uint8_t& r, uint8_t& g, uint8_t& b) const;
 private:
 	Vector2f m_mouseLocation;
 	View m_view;

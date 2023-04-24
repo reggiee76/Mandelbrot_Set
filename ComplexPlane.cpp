@@ -1,12 +1,15 @@
 #include "ComplexPlane.h"
 #include <cmath>
+#include <View.hpp>
+#include <string>
+#include <sstream>
 
 //Constructor
-ComplexPlane::ComplexPlane(float aspectRatio)
-{
-	m_aspectRatio = aspectRatio;
-
-
+ComplexPlane::ComplexPlane(float aspectRatio) {
+    m_aspectRatio = aspectRatio;
+    this->m_view.setSize(BASE_WIDTH, -BASE_HEIGHT * m_aspectRatio);
+    this->m_view.setCenter(0.0, 0.0);
+    this->m_zoomCount = 0;
 }
 
 //Zoom In
@@ -19,7 +22,7 @@ void ComplexPlane::zoomIn()
 	y = BASE_HEIGHT * m_aspectRatio * pow(BASE_ZOOM, m_zoomCount);
 
 	//*****setSize in m_view to the new size****  TODO*
-	
+    this->m_view.setSize(x, y);
 
 }
 
@@ -33,13 +36,13 @@ void ComplexPlane::zoomOut()
 	y = BASE_HEIGHT * m_aspectRatio * pow(BASE_ZOOM, m_zoomCount);
 
 	//***setSize in m_view to the new size*** TODO*
-
+    this->m_view.setSize(x, y);
 }
 
 //Set Center
 void ComplexPlane::setCenter(Vector2f coord)
 {
-
+    this->m_view.setCenter(coord);
 }
 
 //Get view
@@ -55,19 +58,23 @@ void ComplexPlane::setMouseLocation(Vector2f coord)
 }
 
 //Load Text
-void ComplexPlane::loadText(Text& text)
-{
-
+void ComplexPlane::loadText(Text& text) {
+    stringstream st;
+    st << "Center:(" << this->m_view.getCenter().x << "," << this->m_view.getCenter().y << ")" << endl;
+    st << "Cursor:(" << this->m_mouseLocation.x << "," << this->m_mouseLocation.y << ")" << endl;
+    st << "Left-click to Zoom in" << endl;
+    st << "Left-click to Zoom out" << endl;
+    text.string(st.str());
 }
 
 //Count iterations
-size_t ComplexPlane::countIterations(Vector2f coord)
+size_t ComplexPlane::countIterations(Vector2f coord) const
 {
 
 }
 
 //Iterations to RGB
-void ComplexPlane::iterationsToRGB(size_t count, uint8_t& r, uint8_t& g, uint8_t& b)
+void ComplexPlane::iterationsToRGB(size_t count, uint8_t& r, uint8_t& g, uint8_t& b) const
 {
 
 }
