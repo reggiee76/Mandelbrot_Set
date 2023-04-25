@@ -17,7 +17,7 @@ int main() {
     float aspectRatio = static_cast<float>(height) / static_cast<float>(width);
 
     // Construct the window
-    RenderWindow window(VideoMode(width, height), "Mandelbrot Set");
+    RenderWindow window(VideoMode(width, height), "Mandelbrot Set", Style::Fullscreen);
 
 
     // Construct an object of type ComplexPlane
@@ -61,14 +61,16 @@ int main() {
                 Vector2f worldPos = window.mapPixelToCoords(Mouse::getPosition(window), plane.getView());
 
                 if (event.mouseButton.button == Mouse::Right) {
-                    // Right click will zoomOut and setCenter of the ComplexPlane objext
+                    // Right click will zoomOut and setCenter of the ComplexPlane object
+//                    plane.setMouseLocation(worldPos);
+                    plane.setCenter(worldPos);
                     plane.zoomOut();
-                    plane.setMouseLocation(worldPos);
                     state = State::CALCULATING;
                 } else if (event.mouseButton.button == Mouse::Left) {
                     // Left click will zoomIn and setCenter of the ComplexPlane object
+//                    plane.setMouseLocation(worldPos);
+                    plane.setCenter(worldPos);
                     plane.zoomIn();
-                    plane.setMouseLocation(worldPos);
                     state = State::CALCULATING;
                 }
             }
@@ -92,6 +94,7 @@ int main() {
 
             for (int i = 0; i < pixelHeight; i++) {
                 for (int j = 0; j < pixelWidth; j++) {
+
                     // Set the position of the vertex to the pixel coordinates
                     vertexArray[j + i * pixelWidth].position = {(float) j, (float) i};
 

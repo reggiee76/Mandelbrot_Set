@@ -5,7 +5,7 @@
 #include <complex>
 
 //Constructor
-ComplexPlane::ComplexPlane(float aspectRatio) 
+ComplexPlane::ComplexPlane(float aspectRatio)
 {
 	// Store the aspectRatio into m_aspectRatio
     m_aspectRatio = aspectRatio;
@@ -135,9 +135,12 @@ void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b) c
 	{
         //***TODO**
         if (count < 10) {
-            r = 234;
-            g = 51;
-            b = 247;
+//            r = 234;
+//            g = 51;
+//            b = 247;
+            r = 87;
+            g = 121;
+            b = 207;
         } else if (count < 20) {
             r = 111;
             g = 240;
