@@ -84,12 +84,6 @@ int main() {
             }
         }
 
-        // Update Segment
-        if (state == State::CALCULATING) {
-            plane.getView();
-            state = State::DISPLAYING;
-        }
-
         // ****Update Scene Segment****
         if (state == State::CALCULATING) {
             int pixelWidth = static_cast<int>(width);
