@@ -95,7 +95,7 @@ void ComplexPlane::loadText(Text& text)
     st << "Cursor:(" << this->m_mouseLocation.x << "," << this->m_mouseLocation.y << ")" << endl;
 	// Zoom Instructions
     st << "Left-click to Zoom in" << endl;
-    st << "Left-click to Zoom out" << endl;
+    st << "Right-click to Zoom out" << endl;
 	// Set the text string of the Text object to the stringstream contents
     text.setString(st.str());
 }
