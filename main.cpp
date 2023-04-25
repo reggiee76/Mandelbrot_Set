@@ -17,12 +17,12 @@ int main() {
     float aspectRatio = static_cast<float>(height) / static_cast<float>(width);
 
     // Construct the window
-    RenderWindow window(VideoMode(width, height), "Mandelbrot Set", Style::Fullscreen);
+    RenderWindow window(VideoMode(width, height), "Mandelbrot Set");
 
 
     // Construct an object of type ComplexPlane
-//	ComplexPlane plane(16.0f / 9.0f);
     ComplexPlane plane(aspectRatio);
+//    window.setView(plane.getView());
 
     // Create a Font Object
     Font font;
