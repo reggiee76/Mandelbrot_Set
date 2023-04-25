@@ -103,7 +103,7 @@ void ComplexPlane::loadText(Text& text)
 //Count the number of iterations of the set for the given coordinate
 size_t ComplexPlane::countIterations(Vector2f coord) const
 {
-	/ Convert the pixel coordinate to a complex number
+	// Convert the pixel coordinate to a complex number
 	complex<float> c(coord.x / m_view.getSize().x * m_view.getSize().x - m_view.getSize().x / 2 + m_view.getCenter().x, 
 					 coord.y / m_view.getSize().y * m_view.getSize().y - m_view.getSize().y / 2 + m_view.getCenter().y);
 
