@@ -3,9 +3,10 @@
 #define COMPLEXPLANE_H
 
 #include <iomanip>
+#include <SFML/Graphics.hpp>
 
 using namespace std;
-
+using namespace sf;
 class ComplexPlane
 {
 public:

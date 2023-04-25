@@ -1,8 +1,9 @@
 #include "ComplexPlane.h"
 #include <cmath>
-#include <View.hpp>
 #include <string>
 #include <sstream>
+
+//using namespace sf;
 
 //Constructor
 ComplexPlane::ComplexPlane(float aspectRatio) {
@@ -64,7 +65,7 @@ void ComplexPlane::loadText(Text& text) {
     st << "Cursor:(" << this->m_mouseLocation.x << "," << this->m_mouseLocation.y << ")" << endl;
     st << "Left-click to Zoom in" << endl;
     st << "Left-click to Zoom out" << endl;
-    text.string(st.str());
+    text.setString(st.str());
 }
 
 //Count iterations
